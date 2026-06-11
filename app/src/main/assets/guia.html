@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Guia • Controle do Bar</title>
+<style>
+:root{--bg:#f3f4f6;--card:#fff;--text:#111827;--muted:#6b7280;--line:#e5e7eb;--blue:#2563eb;--green:#16a34a;--orange:#d97706;--red:#dc2626;--shadow:0 10px 28px rgba(15,23,42,.1)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,sans-serif;color:var(--text);padding-bottom:88px}header{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,#111827,#1f2937 60%,#2563eb);color:#fff;padding:16px;box-shadow:0 8px 18px rgba(0,0,0,.2)}header h1{font-size:20px;margin:0}header p{font-size:12px;color:#d1d5db;margin:4px 0 0}.wrap{max-width:1050px;margin:auto;padding:14px}.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;position:sticky;bottom:0;background:#fff;padding:8px;border-top:1px solid var(--line);z-index:4}.tab{border:0;border-radius:12px;padding:10px 4px;background:#1f2937;color:#fff;font-weight:900;font-size:11px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:14px;margin-bottom:12px}.card h2{font-size:17px;margin:0 0 10px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{border:1px solid var(--line);border-radius:15px;padding:12px;background:#fff}.stat span{display:block;font-size:11px;color:var(--muted);font-weight:900}.stat b{font-size:20px;display:block;margin-top:5px}.btn{border:0;border-radius:13px;padding:11px 13px;color:#fff;font-weight:900;margin:4px;background:#111827}.blue{background:var(--blue)}.green{background:var(--green)}.orange{background:var(--orange)}.red{background:var(--red)}.row{display:flex;gap:8px;flex-wrap:wrap}.field{border:1px solid #d1d5db;border-radius:12px;padding:12px;color:#6b7280;background:#fff;flex:1;min-width:130px}.product{border-left:7px solid var(--blue)}.low{border-left:7px solid var(--red)}.hidden{display:none!important}.playbar{position:fixed;right:12px;bottom:72px;z-index:20;display:flex;gap:7px}.play{width:58px;height:58px;border-radius:50%;border:0;background:#16a34a;color:#fff;font-size:22px;box-shadow:0 10px 30px rgba(0,0,0,.3)}.stop{width:48px;height:48px;border-radius:50%;border:0;background:#dc2626;color:#fff;font-size:16px}.coach{position:fixed;left:12px;right:12px;bottom:138px;background:#111827;color:#fff;border-radius:18px;padding:14px;z-index:30;box-shadow:0 18px 50px rgba(0,0,0,.38);display:none}.coach.show{display:block}.coach b{display:block;font-size:16px;margin-bottom:5px}.arrow{position:absolute;width:56px;height:56px;border:5px solid #fbbf24;border-radius:50%;pointer-events:none;z-index:25;display:none;animation:pulse .8s infinite}.arrow.show{display:block}@keyframes pulse{50%{transform:scale(1.15)}}.focus{outline:5px solid #fbbf24!important;outline-offset:4px;position:relative;z-index:26}.screen{display:none}.screen.active{display:block}@media(max-width:600px){.tabs{grid-template-columns:repeat(5,1fr)}.tab{font-size:9px}.stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><h1>Controle do Bar</h1><p>Treinamento interativo • toque em Play</p></header>
+<div class="wrap">
+<section id="inicio" class="screen active">
+ <div class="stats"><div class="stat" id="sVendas"><span>VENDAS HOJE</span><b>18</b></div><div class="stat" id="sTotal"><span>TOTAL HOJE</span><b>R$ 742,50</b></div></div>
+ <div class="card low" id="sComprar"><h2>Produtos para comprar</h2><b>4 produtos abaixo do mínimo</b></div>
+ <div class="card"><h2>Ações rápidas</h2><div class="row"><button class="btn green" id="bNovaVenda">Nova venda</button><button class="btn blue" id="bNovoProduto">Novo produto</button><button class="btn orange" id="bRelatorios">Abrir relatórios</button></div></div>
+</section>
+<section id="venda" class="screen">
+ <div class="card"><h2>Nova venda</h2><div class="field" id="vProduto">Selecionar produto</div><div class="row"><div class="field" id="vQtd">Quantidade: 1</div><div class="field" id="vPreco">Preço: R$ 8,00</div></div><button class="btn blue" id="vAdicionar">Adicionar item</button></div>
+ <div class="card" id="vCarrinho"><h2>Itens da venda</h2><p>Cerveja lata — 2 × R$ 8,00 = R$ 16,00</p><p>Refrigerante — 1 × R$ 6,00 = R$ 6,00</p><b>Total: R$ 22,00</b></div>
+ <div class="card"><div class="field" id="vPagamento">Forma: PIX</div><button class="btn green" id="vFinalizar">Finalizar venda</button></div>
+</section>
+<section id="estoque" class="screen">
+ <div class="card"><h2>Estoque</h2><div class="field" id="eBusca">Pesquisar produto</div><button class="btn green" id="eCadastrar">Cadastrar produto</button></div>
+ <div class="card product" id="eProduto"><h2>Cerveja lata</h2><p>Estoque: 24 un • Mínimo: 12 • Venda: R$ 8,00</p><button class="btn blue">Editar</button><button class="btn green" id="eEntrada">Entrada</button></div>
+ <div class="card low"><h2>Água 500 ml</h2><p style="color:#dc2626">Estoque: 3 un • Mínimo: 10 • Comprar: 7 un</p></div>
+</section>
+<section id="relatorios" class="screen"><div class="card"><h2>Relatórios</h2><button class="btn blue" id="rDiario">Vendas diárias</button><button class="btn orange" id="rComprar">O que precisa comprar</button><button class="btn" id="rHistorico">Histórico de vendas</button></div><div class="card"><h2>Venda do dia</h2><b>Total: R$ 742,50</b><p>18 vendas realizadas</p></div></section>
+<section id="mais" class="screen"><div class="card"><h2>Backup completo</h2><button class="btn blue" id="mExportar">Exportar todos os dados</button><button class="btn green" id="mImportar">Importar backup completo</button><p style="color:#dc2626"><b>Atenção:</b> a importação substitui os dados atuais.</p></div></section>
+</div>
+<div class="tabs"><button class="tab" data-screen="inicio">Início</button><button class="tab" data-screen="venda">Venda</button><button class="tab" data-screen="estoque">Estoque</button><button class="tab" data-screen="relatorios">Relatórios</button><button class="tab" data-screen="mais">Mais</button></div>
+<div class="playbar"><button class="stop" onclick="stopTour()">■</button><button class="play" onclick="startTour()">▶</button></div><div id="coach" class="coach"><b id="coachTitle"></b><span id="coachText"></span></div>
+<script>
+const steps=[
+ {screen:'inicio',id:'sVendas',title:'Painel inicial',text:'Aqui você acompanha quantas vendas foram feitas hoje.'},
+ {screen:'inicio',id:'sTotal',title:'Faturamento diário',text:'Este cartão mostra o valor total vendido no dia.'},
+ {screen:'inicio',id:'sComprar',title:'Alerta de compras',text:'Produtos abaixo do estoque mínimo aparecem neste alerta.'},
+ {screen:'inicio',id:'bNovaVenda',title:'Nova venda',text:'Toque em Nova venda para abrir o caixa e selecionar os produtos.'},
+ {screen:'venda',id:'vProduto',title:'Escolha o produto',text:'Selecione um produto já cadastrado no estoque.'},
+ {screen:'venda',id:'vQtd',title:'Quantidade',text:'Informe quantas unidades o cliente está comprando.'},
+ {screen:'venda',id:'vAdicionar',title:'Adicionar item',text:'Adicione o produto ao carrinho. Você pode incluir vários itens.'},
+ {screen:'venda',id:'vCarrinho',title:'Conferência',text:'Confira itens, quantidades, preços e o total antes de finalizar.'},
+ {screen:'venda',id:'vFinalizar',title:'Finalizar venda',text:'Ao finalizar, a venda é salva e o estoque é baixado automaticamente.'},
+ {screen:'estoque',id:'eCadastrar',title:'Cadastrar produto',text:'Cadastre nome, categoria, custo, preço, estoque e estoque mínimo.'},
+ {screen:'estoque',id:'eEntrada',title:'Entrada de estoque',text:'Quando comprar mercadoria, registre a quantidade recebida aqui.'},
+ {screen:'relatorios',id:'rDiario',title:'Relatório diário',text:'Consulte quantidade de vendas e faturamento de qualquer dia.'},
+ {screen:'relatorios',id:'rComprar',title:'Lista do que comprar',text:'O sistema calcula o que está abaixo do mínimo e sugere a quantidade.'},
+ {screen:'mais',id:'mExportar',title:'Exportar backup',text:'Salve produtos, estoque, vendas e itens em um único arquivo JSON.'},
+ {screen:'mais',id:'mImportar',title:'Restaurar backup',text:'Escolha o JSON exportado para restaurar todos os dados no celular.'}
+];
+let index=0,timer=null,current=null;
+function showScreen(name){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(name).classList.add('active');}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>showScreen(b.dataset.screen));
+function speak(text){if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='pt-BR';u.rate=.95;speechSynthesis.speak(u)}}
+function clearFocus(){document.querySelectorAll('.focus').forEach(x=>x.classList.remove('focus'));current=null}
+function runStep(){if(index>=steps.length){finish();return}clearFocus();const s=steps[index];showScreen(s.screen);setTimeout(()=>{const target=document.getElementById(s.id);if(target){target.classList.add('focus');target.scrollIntoView({behavior:'smooth',block:'center'});current=target}document.getElementById('coachTitle').textContent=s.title;document.getElementById('coachText').textContent=s.text;document.getElementById('coach').classList.add('show');speak(s.title+'. '+s.text);timer=setTimeout(()=>{index++;runStep()},6500)},350)}
+function startTour(){stopTour();index=0;document.getElementById('coach').classList.add('show');runStep()}
+function stopTour(){clearTimeout(timer);timer=null;if('speechSynthesis'in window)speechSynthesis.cancel();clearFocus();document.getElementById('coach').classList.remove('show')}
+function finish(){stopTour();showScreen('inicio');alert('Treinamento concluído! Você já pode usar o Controle do Bar.')}
+</script>
+</body></html>
