@@ -4,7 +4,8 @@
         android:fullBackupContent="true"
         android:label="Controle de Vendas do Bar"
         android:theme="@style/Theme.ControleBar"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:enableOnBackInvokedCallback="true">
         <activity android:name=".GuideActivity" android:exported="false" />
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
