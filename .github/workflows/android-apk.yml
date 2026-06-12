@@ -22,5 +22,5 @@ jobs:
         run: gradle :app:lintDebug :app:assembleDebug --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: Controle-Bar-v1.1.0-APK
+          name: Controle-Bar-v1.1.1-APK
           path: app/build/outputs/apk/debug/app-debug.apk
