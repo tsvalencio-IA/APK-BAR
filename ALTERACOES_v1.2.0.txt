@@ -1,0 +1,33 @@
+CONTROLE DO BAR v1.2.0 — DEMO / PRO / GUIA COM VOZ / ÍCONE
+
+Base utilizada: v1.1.3 Kotlin Fix, sem reconstrução do projeto.
+
+1. DEMO
+- Prazo de 3 dias.
+- Inicia no primeiro produto cadastrado.
+- Em instalações atualizadas que já possuem produtos, inicia no primeiro uso da v1.2.0.
+- Usa SharedPreferences separado do SQLite.
+- Produtos, estoque e vendas não são apagados no bloqueio.
+
+2. PRO
+- Botão de desbloqueio na tela bloqueada e em Mais opções.
+- Ativação mantém todos os dados.
+- Senha validada por hash SHA-256, sem texto aberto no arquivo Java.
+
+3. GUIA
+- TextToSpeech nativo do Android.
+- JavaScript aguarda o término real da fala antes de avançar.
+- Play, pausar, parar e voltar etapa.
+
+4. ÍCONE
+- Ícones mdpi, hdpi, xhdpi, xxhdpi e xxxhdpi.
+- Manifesto configurado com icon e roundIcon.
+
+5. BUILD
+- versionCode 7
+- versionName 1.2.0
+- AndroidX/Kotlin fix da v1.1.3 preservado.
+
+6. ASSINATURA ESTÁVEL
+- O projeto inclui uma chave de assinatura estável para que os próximos APKs possam ser instalados por cima desta versão sem apagar o banco local.
+- Como a v1.1.3 anterior foi gerada com uma chave temporária do GitHub Actions, faça backup JSON antes da primeira troca para a v1.2.0.

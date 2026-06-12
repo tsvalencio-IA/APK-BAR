@@ -5,59 +5,99 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Guia • Controle do Bar</title>
 <style>
-:root{--bg:#f3f4f6;--card:#fff;--text:#111827;--muted:#6b7280;--line:#e5e7eb;--blue:#2563eb;--green:#16a34a;--orange:#d97706;--red:#dc2626;--shadow:0 10px 28px rgba(15,23,42,.1)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,sans-serif;color:var(--text);padding-bottom:88px}header{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,#111827,#1f2937 60%,#2563eb);color:#fff;padding:16px;box-shadow:0 8px 18px rgba(0,0,0,.2)}header h1{font-size:20px;margin:0}header p{font-size:12px;color:#d1d5db;margin:4px 0 0}.wrap{max-width:1050px;margin:auto;padding:14px}.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;position:sticky;bottom:0;background:#fff;padding:8px;border-top:1px solid var(--line);z-index:4}.tab{border:0;border-radius:12px;padding:10px 4px;background:#1f2937;color:#fff;font-weight:900;font-size:11px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:14px;margin-bottom:12px}.card h2{font-size:17px;margin:0 0 10px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{border:1px solid var(--line);border-radius:15px;padding:12px;background:#fff}.stat span{display:block;font-size:11px;color:var(--muted);font-weight:900}.stat b{font-size:20px;display:block;margin-top:5px}.btn{border:0;border-radius:13px;padding:11px 13px;color:#fff;font-weight:900;margin:4px;background:#111827}.blue{background:var(--blue)}.green{background:var(--green)}.orange{background:var(--orange)}.red{background:var(--red)}.row{display:flex;gap:8px;flex-wrap:wrap}.field{border:1px solid #d1d5db;border-radius:12px;padding:12px;color:#6b7280;background:#fff;flex:1;min-width:130px}.product{border-left:7px solid var(--blue)}.low{border-left:7px solid var(--red)}.hidden{display:none!important}.playbar{position:fixed;right:12px;bottom:72px;z-index:20;display:flex;gap:7px}.play{width:58px;height:58px;border-radius:50%;border:0;background:#16a34a;color:#fff;font-size:22px;box-shadow:0 10px 30px rgba(0,0,0,.3)}.stop{width:48px;height:48px;border-radius:50%;border:0;background:#dc2626;color:#fff;font-size:16px}.coach{position:fixed;left:12px;right:12px;bottom:138px;background:#111827;color:#fff;border-radius:18px;padding:14px;z-index:30;box-shadow:0 18px 50px rgba(0,0,0,.38);display:none}.coach.show{display:block}.coach b{display:block;font-size:16px;margin-bottom:5px}.arrow{position:absolute;width:56px;height:56px;border:5px solid #fbbf24;border-radius:50%;pointer-events:none;z-index:25;display:none;animation:pulse .8s infinite}.arrow.show{display:block}@keyframes pulse{50%{transform:scale(1.15)}}.focus{outline:5px solid #fbbf24!important;outline-offset:4px;position:relative;z-index:26}.screen{display:none}.screen.active{display:block}@media(max-width:600px){.tabs{grid-template-columns:repeat(5,1fr)}.tab{font-size:9px}.stats{grid-template-columns:1fr 1fr}}
+:root{--bg:#0b0d10;--panel:#14171b;--panel2:#1d2126;--text:#f8fafc;--muted:#a8b0ba;--line:#31363d;--yellow:#ffb800;--green:#16a34a;--blue:#2563eb;--red:#dc2626;--orange:#d97706;--shadow:0 16px 40px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}body{padding-bottom:112px}header{position:sticky;top:0;z-index:20;background:linear-gradient(135deg,#090a0c,#1a1d22 65%,#3b2600);padding:15px 14px;border-bottom:1px solid #2c3138;box-shadow:0 8px 24px rgba(0,0,0,.35)}header h1{font-size:20px;margin:0;font-weight:900}header p{font-size:12px;color:#cbd5e1;margin:4px 0 0}.wrap{max-width:950px;margin:auto;padding:12px}.screen{display:none}.screen.active{display:block}.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow)}.card h2{font-size:17px;margin:0 0 10px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:linear-gradient(135deg,#292d33,#171a1f);border:1px solid #383e46;border-radius:16px;padding:13px}.stat span{display:block;font-size:11px;color:var(--muted);font-weight:900}.stat b{font-size:20px;display:block;margin-top:5px;color:var(--yellow)}.row{display:flex;gap:8px;flex-wrap:wrap}.field{border:1px solid #3a4048;border-radius:12px;padding:12px;color:#d1d5db;background:#20242a;flex:1;min-width:130px}.btn{border:0;border-radius:13px;padding:11px 13px;color:#fff;font-weight:900;margin:4px;background:#252a31}.blue{background:var(--blue)}.green{background:var(--green)}.orange{background:var(--orange)}.red{background:var(--red)}.yellow{background:var(--yellow);color:#111}.product{border-left:7px solid var(--blue)}.low{border-left:7px solid var(--red)}.license{border-left:7px solid var(--yellow)}.hidden{display:none!important}.tabs{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);gap:5px;background:rgba(15,17,20,.97);padding:8px max(8px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));border-top:1px solid var(--line);z-index:30}.tab{border:0;border-radius:12px;padding:10px 3px;background:#22262c;color:#fff;font-weight:900;font-size:10px}.tab.active{background:var(--yellow);color:#111}.coach{position:fixed;left:10px;right:10px;bottom:82px;background:#111418;border:2px solid var(--yellow);border-radius:18px;padding:13px;z-index:50;box-shadow:0 20px 55px rgba(0,0,0,.55);display:none}.coach.show{display:block}.coachTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.coach b{font-size:16px;color:var(--yellow)}.coach p{font-size:13px;line-height:1.45;margin:6px 0 10px;color:#e5e7eb}.progress{height:7px;border-radius:999px;background:#31363d;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--yellow);transition:width .3s}.controls{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:7px;margin-top:10px}.controls button{border:0;border-radius:11px;padding:10px 8px;font-weight:900;color:#fff;background:#2a2f36}.controls .play{background:var(--green)}.controls .stop{background:var(--red)}.focus{outline:5px solid var(--yellow)!important;outline-offset:4px;position:relative;z-index:15;animation:pulse .9s infinite}.voiceBadge{font-size:10px;padding:5px 8px;border-radius:999px;background:#243a2a;color:#86efac;white-space:nowrap}@keyframes pulse{50%{transform:scale(1.025)}}@media(max-width:600px){.stats{grid-template-columns:1fr 1fr}.tab{font-size:9px}.coach{bottom:80px}.controls{grid-template-columns:1fr 1fr 1fr}}
 </style>
 </head>
 <body>
-<header><h1>Controle do Bar</h1><p>Treinamento interativo • toque em Play</p></header>
+<header><h1>Guia Interativo</h1><p>Toque em Play. A tela só avança quando a explicação terminar.</p></header>
 <div class="wrap">
 <section id="inicio" class="screen active">
- <div class="stats"><div class="stat" id="sVendas"><span>VENDAS HOJE</span><b>18</b></div><div class="stat" id="sTotal"><span>TOTAL HOJE</span><b>R$ 742,50</b></div></div>
- <div class="card low" id="sComprar"><h2>Produtos para comprar</h2><b>4 produtos abaixo do mínimo</b></div>
- <div class="card"><h2>Ações rápidas</h2><div class="row"><button class="btn green" id="bNovaVenda">Nova venda</button><button class="btn blue" id="bNovoProduto">Novo produto</button><button class="btn orange" id="bRelatorios">Abrir relatórios</button></div></div>
+  <div class="card license" id="demoStatus"><h2>Versão de demonstração</h2><p>3 dias a partir do primeiro produto cadastrado. Seus dados ficam salvos no aparelho.</p></div>
+  <div class="stats"><div class="stat" id="sVendas"><span>VENDAS HOJE</span><b>18</b></div><div class="stat" id="sTotal"><span>TOTAL HOJE</span><b>R$ 742,50</b></div></div>
+  <div class="card low" id="sComprar"><h2>Produtos para comprar</h2><b>4 produtos abaixo do mínimo</b></div>
+  <div class="card"><h2>Ações rápidas</h2><div class="row"><button class="btn green" id="bNovaVenda">Nova venda</button><button class="btn blue" id="bNovoProduto">Novo produto</button><button class="btn orange" id="bRelatorios">Abrir relatórios</button></div></div>
 </section>
 <section id="venda" class="screen">
- <div class="card"><h2>Nova venda</h2><div class="field" id="vProduto">Selecionar produto</div><div class="row"><div class="field" id="vQtd">Quantidade: 1</div><div class="field" id="vPreco">Preço: R$ 8,00</div></div><button class="btn blue" id="vAdicionar">Adicionar item</button></div>
- <div class="card" id="vCarrinho"><h2>Itens da venda</h2><p>Cerveja lata — 2 × R$ 8,00 = R$ 16,00</p><p>Refrigerante — 1 × R$ 6,00 = R$ 6,00</p><b>Total: R$ 22,00</b></div>
- <div class="card"><div class="field" id="vPagamento">Forma: PIX</div><button class="btn green" id="vFinalizar">Finalizar venda</button></div>
+  <div class="card"><h2>Nova venda</h2><div class="field" id="vProduto">Selecionar produto</div><div class="row"><div class="field" id="vQtd">Quantidade: 1</div><div class="field" id="vPreco">Preço: R$ 8,00</div></div><button class="btn blue" id="vAdicionar">Adicionar item</button></div>
+  <div class="card" id="vCarrinho"><h2>Carrinho</h2><p>Cerveja lata — 2 × R$ 8,00 = R$ 16,00</p><p>Refrigerante — 1 × R$ 6,00 = R$ 6,00</p><b>Total: R$ 22,00</b></div>
+  <div class="card"><div class="field" id="vPagamento">Pagamento: PIX</div><button class="btn green" id="vFinalizar">Finalizar venda</button></div>
 </section>
 <section id="estoque" class="screen">
- <div class="card"><h2>Estoque</h2><div class="field" id="eBusca">Pesquisar produto</div><button class="btn green" id="eCadastrar">Cadastrar produto</button></div>
- <div class="card product" id="eProduto"><h2>Cerveja lata</h2><p>Estoque: 24 un • Mínimo: 12 • Venda: R$ 8,00</p><button class="btn blue">Editar</button><button class="btn green" id="eEntrada">Entrada</button></div>
- <div class="card low"><h2>Água 500 ml</h2><p style="color:#dc2626">Estoque: 3 un • Mínimo: 10 • Comprar: 7 un</p></div>
+  <div class="card"><h2>Estoque</h2><div class="field" id="eBusca">Pesquisar produto</div><button class="btn green" id="eCadastrar">Cadastrar produto</button></div>
+  <div class="card product" id="eProduto"><h2>Cerveja lata</h2><p>Estoque: 24 un • Mínimo: 12 • Venda: R$ 8,00</p><button class="btn blue">Editar</button><button class="btn green" id="eEntrada">Entrada</button></div>
+  <div class="card low"><h2>Água 500 ml</h2><p style="color:#fca5a5">Estoque: 3 un • Mínimo: 10 • Comprar: 7 un</p></div>
 </section>
-<section id="relatorios" class="screen"><div class="card"><h2>Relatórios</h2><button class="btn blue" id="rDiario">Vendas diárias</button><button class="btn orange" id="rComprar">O que precisa comprar</button><button class="btn" id="rHistorico">Histórico de vendas</button></div><div class="card"><h2>Venda do dia</h2><b>Total: R$ 742,50</b><p>18 vendas realizadas</p></div></section>
-<section id="mais" class="screen"><div class="card"><h2>Backup completo</h2><button class="btn blue" id="mExportar">Exportar todos os dados</button><button class="btn green" id="mImportar">Importar backup completo</button><p style="color:#dc2626"><b>Atenção:</b> a importação substitui os dados atuais.</p></div></section>
+<section id="relatorios" class="screen"><div class="card"><h2>Relatórios</h2><button class="btn blue" id="rDiario">Vendas diárias</button><button class="btn orange" id="rComprar">O que precisa comprar</button><button class="btn" id="rHistorico">Histórico de vendas</button></div><div class="card"><h2>Resumo do dia</h2><b>Total: R$ 742,50</b><p>18 vendas realizadas</p></div></section>
+<section id="mais" class="screen">
+  <div class="card"><h2>Backup completo</h2><button class="btn blue" id="mExportar">Exportar todos os dados</button><button class="btn green" id="mImportar">Importar backup completo</button><p style="color:#fca5a5"><b>Atenção:</b> a importação substitui os dados atuais.</p></div>
+  <div class="card license" id="mDesbloquear"><h2>Desbloquear versão PRO</h2><p>Quando a DEMO terminar, toque em Desbloquear e digite a senha fornecida.</p><button class="btn yellow">Desbloquear</button></div>
+</section>
 </div>
-<div class="tabs"><button class="tab" data-screen="inicio">Início</button><button class="tab" data-screen="venda">Venda</button><button class="tab" data-screen="estoque">Estoque</button><button class="tab" data-screen="relatorios">Relatórios</button><button class="tab" data-screen="mais">Mais</button></div>
-<div class="playbar"><button class="stop" onclick="stopTour()">■</button><button class="play" onclick="startTour()">▶</button></div><div id="coach" class="coach"><b id="coachTitle"></b><span id="coachText"></span></div>
+<div class="tabs"><button class="tab active" data-screen="inicio">Início</button><button class="tab" data-screen="venda">Venda</button><button class="tab" data-screen="estoque">Estoque</button><button class="tab" data-screen="relatorios">Relatórios</button><button class="tab" data-screen="mais">Mais</button></div>
+<div id="coach" class="coach"><div class="coachTop"><b id="coachTitle"></b><span id="voiceBadge" class="voiceBadge">Voz sincronizada</span></div><p id="coachText"></p><div class="progress"><i id="progressBar"></i></div><div class="controls"><button onclick="previousStep()">Anterior</button><button id="playButton" class="play" onclick="toggleTour()">▶ Play</button><button class="stop" onclick="stopTour()">Parar</button></div></div>
 <script>
 const steps=[
- {screen:'inicio',id:'sVendas',title:'Painel inicial',text:'Aqui você acompanha quantas vendas foram feitas hoje.'},
+ {screen:'inicio',id:'demoStatus',title:'Versão de demonstração',text:'A demonstração dura três dias e começa somente quando o primeiro produto é cadastrado. Até esse momento, o prazo não corre.'},
+ {screen:'inicio',id:'sVendas',title:'Vendas do dia',text:'Aqui você acompanha quantas vendas foram finalizadas hoje.'},
  {screen:'inicio',id:'sTotal',title:'Faturamento diário',text:'Este cartão mostra o valor total vendido no dia.'},
- {screen:'inicio',id:'sComprar',title:'Alerta de compras',text:'Produtos abaixo do estoque mínimo aparecem neste alerta.'},
- {screen:'inicio',id:'bNovaVenda',title:'Nova venda',text:'Toque em Nova venda para abrir o caixa e selecionar os produtos.'},
- {screen:'venda',id:'vProduto',title:'Escolha o produto',text:'Selecione um produto já cadastrado no estoque.'},
+ {screen:'inicio',id:'sComprar',title:'Alerta de compras',text:'Produtos que chegaram ao estoque mínimo aparecem neste alerta.'},
+ {screen:'inicio',id:'bNovoProduto',title:'Primeiro cadastro',text:'Cadastre o produto com nome, preço, estoque atual e estoque mínimo. O prazo da demonstração começa no primeiro cadastro.'},
+ {screen:'inicio',id:'bNovaVenda',title:'Nova venda',text:'Toque em Nova venda para abrir o caixa.'},
+ {screen:'venda',id:'vProduto',title:'Selecionar produto',text:'Escolha um produto já cadastrado no estoque.'},
  {screen:'venda',id:'vQtd',title:'Quantidade',text:'Informe quantas unidades o cliente está comprando.'},
- {screen:'venda',id:'vAdicionar',title:'Adicionar item',text:'Adicione o produto ao carrinho. Você pode incluir vários itens.'},
- {screen:'venda',id:'vCarrinho',title:'Conferência',text:'Confira itens, quantidades, preços e o total antes de finalizar.'},
+ {screen:'venda',id:'vAdicionar',title:'Adicionar ao carrinho',text:'Adicione o item. É possível colocar vários produtos na mesma venda.'},
+ {screen:'venda',id:'vCarrinho',title:'Conferir carrinho',text:'Confira produtos, quantidades, preços e total antes de finalizar.'},
+ {screen:'venda',id:'vPagamento',title:'Forma de pagamento',text:'Escolha dinheiro, PIX, cartão, fiado ou outro.'},
  {screen:'venda',id:'vFinalizar',title:'Finalizar venda',text:'Ao finalizar, a venda é salva e o estoque é baixado automaticamente.'},
- {screen:'estoque',id:'eCadastrar',title:'Cadastrar produto',text:'Cadastre nome, categoria, custo, preço, estoque e estoque mínimo.'},
- {screen:'estoque',id:'eEntrada',title:'Entrada de estoque',text:'Quando comprar mercadoria, registre a quantidade recebida aqui.'},
- {screen:'relatorios',id:'rDiario',title:'Relatório diário',text:'Consulte quantidade de vendas e faturamento de qualquer dia.'},
- {screen:'relatorios',id:'rComprar',title:'Lista do que comprar',text:'O sistema calcula o que está abaixo do mínimo e sugere a quantidade.'},
- {screen:'mais',id:'mExportar',title:'Exportar backup',text:'Salve produtos, estoque, vendas e itens em um único arquivo JSON.'},
- {screen:'mais',id:'mImportar',title:'Restaurar backup',text:'Escolha o JSON exportado para restaurar todos os dados no celular.'}
+ {screen:'estoque',id:'eEntrada',title:'Entrada de estoque',text:'Quando comprar mercadoria, registre aqui a quantidade recebida.'},
+ {screen:'relatorios',id:'rDiario',title:'Relatório diário',text:'Consulte quantidade de vendas, faturamento e formas de pagamento por data.'},
+ {screen:'relatorios',id:'rComprar',title:'Lista do que comprar',text:'O sistema compara estoque atual e mínimo e sugere a quantidade para reposição.'},
+ {screen:'mais',id:'mExportar',title:'Exportar backup',text:'Exporte produtos, estoque, vendas, itens e movimentações em um único arquivo.'},
+ {screen:'mais',id:'mImportar',title:'Importar backup',text:'Use o arquivo exportado para restaurar todos os dados no aparelho.'},
+ {screen:'mais',id:'mDesbloquear',title:'Desbloquear a versão PRO',text:'Quando o prazo terminar, o botão Desbloquear aparecerá. A ativação mantém todos os dados já cadastrados.'}
 ];
-let index=0,timer=null,current=null;
-function showScreen(name){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(name).classList.add('active');}
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>showScreen(b.dataset.screen));
-function speak(text){if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='pt-BR';u.rate=.95;speechSynthesis.speak(u)}}
-function clearFocus(){document.querySelectorAll('.focus').forEach(x=>x.classList.remove('focus'));current=null}
-function runStep(){if(index>=steps.length){finish();return}clearFocus();const s=steps[index];showScreen(s.screen);setTimeout(()=>{const target=document.getElementById(s.id);if(target){target.classList.add('focus');target.scrollIntoView({behavior:'smooth',block:'center'});current=target}document.getElementById('coachTitle').textContent=s.title;document.getElementById('coachText').textContent=s.text;document.getElementById('coach').classList.add('show');speak(s.title+'. '+s.text);timer=setTimeout(()=>{index++;runStep()},6500)},350)}
-function startTour(){stopTour();index=0;document.getElementById('coach').classList.add('show');runStep()}
-function stopTour(){clearTimeout(timer);timer=null;if('speechSynthesis'in window)speechSynthesis.cancel();clearFocus();document.getElementById('coach').classList.remove('show')}
-function finish(){stopTour();showScreen('inicio');alert('Treinamento concluído! Você já pode usar o Controle do Bar.')}
+let index=0,running=false,paused=false,currentTarget=null,fallbackTimer=null,currentUtterance='';
+function showScreen(name){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(name).classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.screen===name));}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{stopTour();showScreen(b.dataset.screen)});
+function clearFocus(){document.querySelectorAll('.focus').forEach(x=>x.classList.remove('focus'));currentTarget=null;}
+function setProgress(){document.getElementById('progressBar').style.width=((index+1)/steps.length*100)+'%';}
+function showCoach(){document.getElementById('coach').classList.add('show');}
+function runStep(){
+ if(!running||paused)return;
+ if(index>=steps.length){finishTour();return;}
+ clearTimeout(fallbackTimer);clearFocus();
+ const s=steps[index];showScreen(s.screen);showCoach();setProgress();
+ document.getElementById('coachTitle').textContent=(index+1)+' de '+steps.length+' • '+s.title;
+ document.getElementById('coachText').textContent=s.text;
+ setTimeout(()=>{const target=document.getElementById(s.id);if(target){target.classList.add('focus');target.scrollIntoView({behavior:'smooth',block:'center'});currentTarget=target;}speakSynchronized(s.title+'. '+s.text,index);},350);
+}
+function speakSynchronized(text,stepIndex){
+ currentUtterance='step_'+stepIndex+'_'+Date.now();
+ if(window.AndroidGuide&&typeof AndroidGuide.speak==='function'){
+   document.getElementById('voiceBadge').textContent='Voz nativa sincronizada';
+   AndroidGuide.speak(text,currentUtterance);
+   fallbackTimer=setTimeout(()=>onSpeechFinished(currentUtterance),Math.max(7000,text.length*75));
+   return;
+ }
+ if('speechSynthesis' in window){
+   document.getElementById('voiceBadge').textContent='Voz sincronizada';speechSynthesis.cancel();
+   const u=new SpeechSynthesisUtterance(text);u.lang='pt-BR';u.rate=.92;u.onend=()=>onSpeechFinished(currentUtterance);u.onerror=()=>onSpeechFinished(currentUtterance);speechSynthesis.speak(u);
+   fallbackTimer=setTimeout(()=>onSpeechFinished(currentUtterance),Math.max(7000,text.length*75));
+ }else{
+   document.getElementById('voiceBadge').textContent='Avanço automático';fallbackTimer=setTimeout(()=>onSpeechFinished(currentUtterance),Math.max(6000,text.length*65));
+ }
+}
+function onSpeechFinished(id){if(!running||paused||id!==currentUtterance)return;clearTimeout(fallbackTimer);setTimeout(()=>{if(!running||paused)return;index++;runStep();},650);}
+window.onNativeSpeechDone=onSpeechFinished;
+window.onNativeSpeechUnavailable=function(id){if(id!==currentUtterance)return;speakWebFallback();};
+function speakWebFallback(){const s=steps[index];if(!s)return;if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(s.title+'. '+s.text);u.lang='pt-BR';u.rate=.92;u.onend=()=>onSpeechFinished(currentUtterance);u.onerror=()=>onSpeechFinished(currentUtterance);speechSynthesis.speak(u);}else fallbackTimer=setTimeout(()=>onSpeechFinished(currentUtterance),6500);}
+function toggleTour(){if(!running){startTour();return;}paused=!paused;document.getElementById('playButton').textContent=paused?'▶ Continuar':'⏸ Pausar';if(paused){if(window.AndroidGuide)AndroidGuide.stopSpeaking();if('speechSynthesis'in window)speechSynthesis.cancel();clearTimeout(fallbackTimer);}else runStep();}
+function startTour(){stopTour(false);running=true;paused=false;index=0;document.getElementById('playButton').textContent='⏸ Pausar';showCoach();runStep();}
+function previousStep(){if(!running){running=true;paused=false;}if(index>0)index--;if(window.AndroidGuide)AndroidGuide.stopSpeaking();if('speechSynthesis'in window)speechSynthesis.cancel();clearTimeout(fallbackTimer);runStep();}
+function stopTour(hide=true){running=false;paused=false;clearTimeout(fallbackTimer);if(window.AndroidGuide&&typeof AndroidGuide.stopSpeaking==='function')AndroidGuide.stopSpeaking();if('speechSynthesis'in window)speechSynthesis.cancel();clearFocus();document.getElementById('playButton').textContent='▶ Play';if(hide)document.getElementById('coach').classList.remove('show');}
+function finishTour(){stopTour(false);document.getElementById('coachTitle').textContent='Treinamento concluído';document.getElementById('coachText').textContent='Você conheceu o fluxo principal do Controle do Bar.';document.getElementById('progressBar').style.width='100%';document.getElementById('playButton').textContent='▶ Repetir';showScreen('inicio');}
+showCoach();
 </script>
-</body></html>
+</body>
+</html>
