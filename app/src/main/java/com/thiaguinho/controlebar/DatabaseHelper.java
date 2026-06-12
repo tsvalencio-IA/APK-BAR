@@ -58,6 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor product(long id) { return getReadableDatabase().rawQuery("SELECT * FROM products WHERE id=?", new String[]{String.valueOf(id)}); }
+    public int productCount() { Cursor c=getReadableDatabase().rawQuery("SELECT COUNT(*) FROM products",null); try{return c.moveToFirst()?c.getInt(0):0;}finally{c.close();} }
     public void archiveProduct(long id) { ContentValues v=new ContentValues(); v.put("active",0); getWritableDatabase().update("products",v,"id=?",new String[]{String.valueOf(id)}); }
 
     public void adjustStock(long id, double delta, String type, String reason, String now) throws Exception {
