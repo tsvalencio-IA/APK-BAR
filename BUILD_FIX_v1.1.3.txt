@@ -1,0 +1,13 @@
+CORREÇÃO v1.1.3 — CLASSES KOTLIN DUPLICADAS
+
+Erro confirmado no log:
+- kotlin-stdlib 1.8.22
+- kotlin-stdlib-jdk7 1.6.21
+- kotlin-stdlib-jdk8 1.6.21
+
+Correção aplicada:
+1. Exclusão global dos módulos legados kotlin-stdlib-jdk7 e kotlin-stdlib-jdk8.
+2. Forçada a mesma versão 1.8.22 para kotlin-stdlib e kotlin-stdlib-common.
+3. Jetifier desativado, pois o projeto usa somente AndroidX e não possui bibliotecas support antigas.
+4. Workflow passa a exportar a árvore debugRuntimeClasspath para diagnóstico.
+5. Versão atualizada para 1.1.3 / versionCode 6.

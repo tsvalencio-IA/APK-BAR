@@ -8,8 +8,8 @@ android {
         applicationId 'com.thiaguinho.controlebar'
         minSdk 24
         targetSdk 35
-        versionCode 5
-        versionName '1.1.2'
+        versionCode 6
+        versionName '1.1.3'
     }
 
     buildTypes {
@@ -22,6 +22,20 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+
+configurations.configureEach {
+    // Kotlin 1.8+ incorporou as classes dos antigos módulos jdk7/jdk8.
+    // Algumas dependências AndroidX ainda podem solicitar os módulos antigos,
+    // causando Duplicate class no checkDebugDuplicateClasses.
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+
+    resolutionStrategy {
+        force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.22'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22'
     }
 }
 
