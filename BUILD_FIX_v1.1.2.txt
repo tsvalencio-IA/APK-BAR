@@ -1,0 +1,8 @@
+CORREÇÃO v1.1.2
+
+1. O workflow recria gradle.properties na raiz antes de compilar.
+2. AndroidX é habilitado mesmo se o arquivo não tiver sido enviado ao GitHub.
+3. O APK é compilado antes do lint.
+4. O lint não impede a geração do APK, mas seu relatório é preservado.
+5. Logs completos de build e lint são publicados como artefato.
+6. versionCode 5 / versionName 1.1.2.

@@ -1,0 +1,20 @@
+CORREÇÃO DE BUILD — v1.1.1
+
+Falha corrigida:
+- AndroidX estava presente nas dependências, mas android.useAndroidX não estava habilitado.
+
+Arquivo criado na raiz:
+- gradle.properties
+
+Configuração aplicada:
+android.useAndroidX=true
+android.enableJetifier=true
+org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+android.nonTransitiveRClass=true
+
+Versão atualizada:
+- versionCode 4
+- versionName 1.1.1
+
+O workflow continua executando:
+gradle :app:lintDebug :app:assembleDebug --stacktrace
