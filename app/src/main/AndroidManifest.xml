@@ -1,13 +1,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:label="Controle de Vendas do Bar"
+        android:label="Controle do Bar"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.ControleBar"
         android:supportsRtl="true"
         android:enableOnBackInvokedCallback="true">
-        <activity android:name=".GuideActivity" android:exported="false" />
-        <activity android:name=".MainActivity" android:exported="true">
+
+        <activity
+            android:name=".GuideActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
